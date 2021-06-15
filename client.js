@@ -37,7 +37,41 @@ const employees = [
 // This problem is massive! Break the problem down. Use the debugger.
 // What is the fewest lines of code I can write and test to get just a little closer?
 
+for (let i=0; i<employees.length; i++){
+  console.log(`Name: ${employees[i].name}, Employee Number: ${employees[i].employeeNumber} , Annual Salary: ${employees[i].annualSalary} , Review: ${employees[i].reviewRating}`)
+}
+console.log( employees );
+
+function bonuses(employee){
+ switch (employee.reviewRating) {
+  case 5:
+    //do something is review rating =5
+    bonusPercentage = employee.annualSalary * .10
+    totalComp = parseInt(employee.annualSalary) + bonusPercentage
+    break;
+  case 4:
+    bonusPercentage = employee.annualSalary * .06
+    totalComp = parseInt(employee.annualSalary) + bonusPercentage
+    break;
+  case 3:
+    bonusPercentage = employee.annualSalary * .04
+    totalComp = parseInt(employee.annualSalary) + bonusPercentage
+    break;
+
+  default: 
+  bonusPercentage = employee.annualSalary * 0
+  totalComp = parseInt(employee.annualSalary) + bonusPercentage
+    break;
+  }
+  for (let i=0; i<employees.length; i++){
+    console.log(`Name: ${employee.name}, Bonus based on rating: ${bonusPercentage} , Total Compensation: ${totalComp}`);
+  }
+  return totalComp;
+}
+
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
-console.log( employees );
+console.log(bonuses(employees[2]));
+console.log(bonuses(employees[4]));
+
